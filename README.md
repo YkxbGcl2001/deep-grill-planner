@@ -1,4 +1,4 @@
-# Deep Grill Planner
+# 深问规划 · Deep Grill Planner
 
 [简体中文](README.zh-CN.md) · **English** · [Installation](docs/installation.md) · [Releases](https://github.com/YkxbGcl2001/deep-grill-planner/releases)
 
@@ -35,12 +35,16 @@ Default destination: `~/.agents/skills/deep-grill-planner`. Existing folders are
 For the ChatGPT Work / Codex desktop plugin, add this repo marketplace with a supporting CLI:
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.0
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
 ```
 
 Then select this marketplace in the desktop Plugins Directory, install Deep Grill Planner, and start a new chat. This GitHub-distributed plugin is not listed in OpenAI's universal public directory. Host/account availability varies. See [full installation instructions](docs/installation.md) and their verification limits.
 
-Or download the Skill ZIP, plugin ZIP, and `SHA256SUMS.txt` from [v1.0.0](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.0). Install only the Skill folder when using standalone skill discovery.
+Or download the Skill ZIP, plugin ZIP, and `SHA256SUMS.txt` from [v1.0.1](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.1). Install only the Skill folder when using standalone skill discovery.
+
+## Plan Mode and invocation
+
+Plan Mode is optional. In normal mode, select **深问规划 (Deep Grill Planner)** or explicitly invoke `$deep-grill-planner`. Opening Plan Mode alone does not select this particular skill; implicit matching depends on the task description. Plan Mode can be combined with the Skill when you want to stay in planning. The Skill follows the host mode’s permissions; it cannot authorize execution or file writes that the mode disallows.
 
 ## Usage
 

@@ -1,14 +1,20 @@
 ---
 name: deep-grill-planner
-description: Clarify an underspecified task through dependency-aware questions, recommendations, assumption challenges, and a reviewable plan. Use when the user asks for a deep interview, says grill me, wants assumptions tested, or needs substantial requirements clarified before planning. Do not turn a clear, small execution request into an interview.
+description: 深问规划：深入澄清需求、按依赖追问并形成计划。 Clarify an underspecified task through dependency-aware questions, recommendations, assumption challenges, and a reviewable plan. Use when the user asks for a deep interview, says grill me, wants assumptions tested, or needs substantial requirements clarified before planning. Do not turn a clear, small execution request into an interview.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
-# Deep Grill Planner
+# 深问规划 · Deep Grill Planner
 
 Turn an uncertain idea into a decision-backed, testable plan. Combine a decision tree with targeted assumption challenges; keep one shared record so the same requirement is not interviewed twice. Respond in the user's language. Chinese and English are both supported; bilingual output is optional, not a default doubling of every response.
+
+## Invocation and host modes
+
+The Chinese display name is 深问规划; the stable skill identifier is `deep-grill-planner`. Normal mode is sufficient to use this workflow. Plan Mode is optional and does not itself select this particular skill: invoke it explicitly when the user wants this workflow, or select it when the request matches its description. Do not switch the host mode on the user’s behalf.
+
+Respect the active mode’s permissions. In a host Plan Mode that disallows file changes, keep checkpoints and the planning pack in chat instead of writing files; execution requires leaving that mode through the host’s normal control. The skill cannot override mode restrictions.
 
 ## Start from what is already known
 

@@ -1,8 +1,8 @@
 # Behavioral evaluation / 行为评估
 
-These cases are for a model using the installed Skill, not deterministic wording assertions. Evaluate decisions and resulting artifacts. The v1.0.0 review was a single-agent scenario walkthrough, not an independent blind model evaluation. Automated distribution checks do not prove these behaviors.
+These cases are for a model using the installed Skill, not deterministic wording assertions. Evaluate decisions and resulting artifacts. The v1.0.1 review was a single-agent scenario walkthrough, not an independent blind model evaluation. Automated distribution checks do not prove these behaviors.
 
-这些场景验证决策与产物，不要求固定措辞。v1.0.0 完成了主代理单次场景走查，不是独立盲测，也不能用打包测试代替访谈质量评估。
+这些场景验证决策与产物，不要求固定措辞。v1.0.1 完成了主代理单次场景走查，不是独立盲测，也不能用打包测试代替访谈质量评估。
 
 | Case | Realistic request / 请求 | Observable acceptance / 验收 |
 | --- | --- | --- |
@@ -20,6 +20,7 @@ These cases are for a model using the installed Skill, not deterministic wording
 | Plan-only | “Interview me and write a plan; do not build.” | Produce planning artifacts, do not modify product code or publish. |
 | Resume | A matching checkpoint exists with answered questions and a changed external fact. | Reuse answers, recheck drift-prone evidence, identify affected branches; no repeated intake. |
 | Inaccessible evidence | Existing-system files cannot be opened. | Record the access limitation; do not pretend the project is greenfield or invent its stack. |
+| Host Plan Mode | “Use this Skill in Plan Mode; do not change files.” | Honor the host mode, interview normally, deliver the plan/checkpoint in chat when writes are disallowed; do not switch modes or start implementation. |
 | Chinese use | “深度访谈，帮我梳理实验方案。” | Respond in Chinese, distinguish measurements/literature/assumptions, and provide checkable outcomes. |
 
 Walkthrough result: each case has a corresponding operational rule in SKILL.md or its linked references; no execution trace from an independently installed host is claimed. Future evaluations should retain actual prompts, answers, artifacts, failures, and model/host versions, with private data removed.

@@ -7,7 +7,7 @@
 Use a host that loads local Agent Skills. Git and Python 3.9+ are needed only for this optional route:
 
 ```sh
-git clone --branch v1.0.0 --depth 1 https://github.com/YkxbGcl2001/deep-grill-planner.git
+git clone --branch v1.0.1 --depth 1 https://github.com/YkxbGcl2001/deep-grill-planner.git
 cd deep-grill-planner
 python3 scripts/install.py
 ```
@@ -31,7 +31,7 @@ The root is a skills-only plugin with a portable manifest. Its repo marketplace 
 With a supporting Codex CLI:
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.0
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
 ```
 
 Alternatively clone the repo and add the local absolute path:
@@ -46,8 +46,8 @@ No MCP connection, credential, hook, or service is requested. Adding a marketpla
 
 ## Packages and verification
 
-- `deep-grill-planner-skill-v1.0.0.zip`: standalone Skill, references, templates, licenses.
-- `deep-grill-planner-plugin-v1.0.0.zip`: plugin, marketplace, bilingual docs, utilities, tests.
+- `deep-grill-planner-skill-v1.0.1.zip`: standalone Skill, references, templates, licenses.
+- `deep-grill-planner-plugin-v1.0.1.zip`: plugin, marketplace, bilingual docs, utilities, tests.
 - `SHA256SUMS.txt`: SHA-256 for both packages.
 - GitHub's automatic source archives: the complete versioned repository.
 
@@ -69,3 +69,7 @@ Preserve local customizations, move/remove only the existing `deep-grill-planner
 Checkpoints are in task workspaces, not the installed Skill. They may contain private information; review them before sharing. Installation does not publish them.
 
 Official references checked on 2026-10-21: [Build skills](https://learn.chatgpt.com/docs/build-skills), [Package your plugin](https://developers.openai.com/plugins/build/plugins). Host support can change; consult these pages when menus or commands differ.
+
+## Invocation and Plan Mode
+
+The display name is 深问规划; the identifier remains `$deep-grill-planner`. Normal mode is sufficient. Plan Mode and skill selection are independent: opening Plan Mode alone does not select this Skill. Select or invoke the Skill explicitly when wanted. It obeys host mode restrictions, including returning plans/checkpoints in chat when file writes are disallowed.

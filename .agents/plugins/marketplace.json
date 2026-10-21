@@ -1,11 +1,19 @@
 {
   "name": "deep-grill-planner",
-  "interface": { "displayName": "Deep Grill Planner" },
+  "interface": {
+    "displayName": "深问规划"
+  },
   "plugins": [
     {
       "name": "deep-grill-planner",
-      "source": { "source": "local", "path": "./" },
-      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
       "category": "Productivity"
     }
   ]

@@ -1,6 +1,6 @@
 # Verification / 验证
 
-Version: 1.0.0. Review date: 2026-10-21.
+Version: 1.0.1. Review date: 2026-10-21.
 
 ## Executable checks / 可执行检查
 
@@ -14,9 +14,9 @@ The bundled OpenAI Skill Creator `quick_validate.py` is also used during release
 
 ## Behavior review / 行为审阅
 
-The 15 cases in [scenarios.md](../tests/scenarios.md) were walked through by the authoring agent against the completed instructions. This is a review of expected routing, decision updates, stopping, language, and consent behavior. It is not an independent blind evaluation or proof that every host/model follows the workflow.
+The 16 cases in [scenarios.md](../tests/scenarios.md) were walked through by the authoring agent against the completed instructions. This is a review of expected routing, decision updates, stopping, language, and consent behavior. It is not an independent blind evaluation or proof that every host/model follows the workflow.
 
-主代理对 15 个场景进行规则走查，检查路由、决策更新、结束条件、语言和授权处理；这不是独立盲测，不保证所有宿主或模型的行为。
+主代理对 16 个场景进行规则走查，检查路由、决策更新、结束条件、语言和授权处理；这不是独立盲测，不保证所有宿主或模型的行为。
 
 ## Platform limits / 平台边界
 

@@ -1,4 +1,4 @@
-# Deep Grill Planner
+# 深问规划 · Deep Grill Planner
 
 **简体中文** · [English](README.md) · [安装说明](docs/installation.zh-CN.md) · [版本下载](https://github.com/YkxbGcl2001/deep-grill-planner/releases)
 
@@ -35,17 +35,31 @@ python3 scripts/install.py
 作为 ChatGPT Work / Codex 桌面插件使用时，在支持该功能的 CLI 中添加仓库来源：
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.0
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
 ```
 
 随后在桌面 Plugins Directory 选择该来源，安装 Deep Grill Planner 并新建聊天。这是通过 GitHub 分发的插件，尚未上架 OpenAI 通用公共插件目录；可用性取决于宿主和账号。完整步骤及验证范围见[中文安装说明](docs/installation.zh-CN.md)。
 
-也可以从 [v1.0.0](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.0) 下载独立 Skill ZIP、插件 ZIP 和校验清单。安装独立 Skill 时，只复制 Skill 文件夹，不要安装整个仓库。
+也可以从 [v1.0.1](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.1) 下载独立 Skill ZIP、插件 ZIP 和校验清单。安装独立 Skill 时，只复制 Skill 文件夹，不要安装整个仓库。
+
+## 需要打开计划模式吗？
+
+**不需要，普通模式就能使用。** 从技能选择器选择「深问规划」，或明确写 `$deep-grill-planner`，即可启动访谈。仅打开 Plan Mode 不代表已经调用这个 Skill；系统也可能根据任务描述自动匹配，但明确选择更可靠。
+
+| 用法 | 结果 |
+| --- | --- |
+| 普通模式 + 明确调用深问规划 | 可直接访谈、澄清需求并形成计划 |
+| 计划模式 + 明确调用深问规划 | 按该 Skill 访谈，同时遵守计划模式的限制 |
+| 只开计划模式，没有指定 Skill | 不保证调用深问规划 |
+
+只想讨论方案时，可以打开计划模式并选择本 Skill。普通任务直接正常调用即可。准备实施时，通过宿主正常操作退出计划模式并给出执行指令；Skill 不会自行切换模式，也不能绕过模式限制。
+
+中文名称用于显示，内部标识保留 `deep-grill-planner`，原安装链接和调用方式继续有效。
 
 ## 使用示例
 
 ```text
-使用 $deep-grill-planner，帮我澄清离线现场数据采集工具的需求。
+使用 $deep-grill-planner（深问规划），帮我澄清离线现场数据采集工具的需求。
 先阅读已有资料，每轮只问真正影响方案的问题，提供推荐和理由，最后形成计划，暂不实施。
 ```
 
