@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Grill Planner"
+  short_description: "Clarify decisions and challenge assumptions before planning"
+  default_prompt: "Use $deep-grill-planner to clarify this task, challenge material assumptions, and produce a reviewable plan."

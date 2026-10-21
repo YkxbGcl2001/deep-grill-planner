@@ -1,0 +1,28 @@
+{
+  "project_version": "1.0.0",
+  "review_date": "2026-10-21",
+  "sources": [
+    {
+      "repository": "Yeachan-Heo/oh-my-claudecode",
+      "commit": "6688a30e90d7285ff336af2dc5ab4b9709f1a8bc",
+      "skill_path": "skills/deep-interview/SKILL.md",
+      "source_url": "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/6688a30e90d7285ff336af2dc5ab4b9709f1a8bc/skills/deep-interview/SKILL.md",
+      "skill_sha256": "72deb0a3be911fcbc6590cdb71faf5f1520c1a0fe8a40b9c5cde15bd363da028",
+      "archive_url": "https://codeload.github.com/Yeachan-Heo/oh-my-claudecode/tar.gz/6688a30e90d7285ff336af2dc5ab4b9709f1a8bc",
+      "archive_sha256": "cc8445b2d1fec4374304bbb8775daf752cb25fc1e3550174a761d13fc1e46aa1",
+      "license": "MIT",
+      "original_license_sha256": "1d2b966f93feaa8928a57a69868388ee9016c86a341299fc5261ded44249af79"
+    },
+    {
+      "repository": "mattpocock/skills",
+      "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "skill_path": "skills/productivity/grilling/SKILL.md",
+      "source_url": "https://github.com/mattpocock/skills/blob/5beb35b040e3de97e54fa9e386d7e42d15c295c2/skills/productivity/grilling/SKILL.md",
+      "skill_sha256": "befdff1e27a1dfe2a294d5871169ac1afe16d983911daa4f32627514a48c1e15",
+      "archive_url": "https://codeload.github.com/mattpocock/skills/tar.gz/5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+      "archive_sha256": "846bd1de940f9b086f41c9189b3a5c9877e0e809f70ae8fdd7844087b7a3c0d2",
+      "license": "MIT",
+      "original_license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    }
+  ]
+}

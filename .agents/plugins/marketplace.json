@@ -1,0 +1,12 @@
+{
+  "name": "deep-grill-planner",
+  "interface": { "displayName": "Deep Grill Planner" },
+  "plugins": [
+    {
+      "name": "deep-grill-planner",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

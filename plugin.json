@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "deep-grill-planner",
+  "version": "1.0.0",
+  "description": "Dependency-aware requirements interviews, assumption challenges, and reviewable plans. 深度需求访谈与规划。",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Deep Grill Planner",
+        "shortDescription": "Deep requirements interviews and reviewable plans",
+        "longDescription": "Clarify important decisions, challenge assumptions, and build a practical plan in English or Chinese.",
+        "developerName": "YkxbGcl2001",
+        "category": "Productivity",
+        "websiteURL": "https://github.com/YkxbGcl2001/deep-grill-planner",
+        "defaultPrompt": [
+          "Clarify my idea with Deep Grill Planner and prepare a reviewable plan.",
+          "用 Deep Grill Planner 深入澄清需求，检查关键假设并形成实施计划。"
+        ]
+      }
+    }
+  }
+}
