@@ -2,3 +2,5 @@ interface:
   display_name: "深问规划"
   short_description: "深度澄清需求、检验关键假设、按决策依赖追问并生成可审阅的实施计划"
   default_prompt: "使用 $deep-grill-planner（深问规划），帮我澄清需求、检验关键假设并形成可审阅的计划。"
+policy:
+  allow_implicit_invocation: false

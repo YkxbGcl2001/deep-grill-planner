@@ -7,7 +7,7 @@
 需要能加载本地 Agent Skills 的宿主。只有以下可选安装方式需要 Git 和 Python 3.9 及以上版本：
 
 ```sh
-git clone --branch v1.0.1 --depth 1 https://github.com/YkxbGcl2001/deep-grill-planner.git
+git clone --branch v1.1.0 --depth 1 https://github.com/YkxbGcl2001/deep-grill-planner.git
 cd deep-grill-planner
 python3 scripts/install.py
 ```
@@ -31,7 +31,7 @@ python3 scripts/install.py --dest /absolute/path/to/skills
 支持相应功能的 Codex CLI 可以运行：
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.1.0
 ```
 
 或克隆仓库后添加本地绝对路径：
@@ -46,8 +46,8 @@ codex plugin marketplace add /absolute/path/to/deep-grill-planner
 
 ## 下载和校验
 
-- `deep-grill-planner-skill-v1.0.1.zip`：独立 Skill、参考资料、模板和许可。
-- `deep-grill-planner-plugin-v1.0.1.zip`：插件、来源目录、中英说明、工具和测试。
+- `deep-grill-planner-skill-v1.1.0.zip`：独立 Skill、参考资料、模板和许可。
+- `deep-grill-planner-plugin-v1.1.0.zip`：插件、来源目录、中英说明、工具和测试。
 - `SHA256SUMS.txt`：两个包的 SHA-256。
 - GitHub 自动源码压缩包：完整版本化仓库。
 
@@ -70,6 +70,16 @@ Windows 使用 `Get-FileHash <zip-file> -Algorithm SHA256`，与清单对应行�
 
 本说明于 2026-10-21 对照官方 [Build skills](https://learn.chatgpt.com/docs/build-skills) 和 [Package your plugin](https://developers.openai.com/plugins/build/plugins) 编写，宿主支持变化时以官方说明为准。
 
-## 调用与计划模式
+## 手动开启与计划模式
 
-本地显示名为「深问规划」，调用标识仍是 `$deep-grill-planner`。普通模式可直接调用，不必先打开计划模式。计划模式和技能选择是两个独立操作：只开计划模式不保证调用该 Skill。需要时先选计划模式，再从选择器选深问规划，或在提示中明确调用。Skill 遵守宿主的模式限制；计划模式禁止写文件时，规划和记录会在聊天中给出。
+显示名为「深问规划」，调用标识为 `$deep-grill-planner`。隐式匹配已关闭；普通模式只在你明确选择技能时启用。
+
+安装后主动开启可选桥接：
+
+```sh
+python3 scripts/plan_bridge.py
+```
+
+默认只向 Codex 全局 `AGENTS.md` 添加受标记保护的规则段，保留已有要求。自定义路径、预览和撤销见 [Plan 桥接说明](plan-mode.md)。新建会话、手动打开计划模式并发送任务后，规则根据宿主真实模式引导加载技能。模式未知时不自动启用，退出计划模式后也不继续自动触发。
+
+桥接不监听按钮、不修改产品内部、不放宽任何权限，且不是硬性行为保证。普通 ChatGPT 网页或未加载本地 AGENTS.md 的宿主不能依赖此方式。

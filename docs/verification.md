@@ -1,6 +1,6 @@
 # Verification / 验证
 
-Version: 1.0.1. Review date: 2026-10-21.
+Version: 1.1.0. Review date: 2026-10-21.
 
 ## Executable checks / 可执行检查
 
@@ -12,17 +12,21 @@ The bundled OpenAI Skill Creator `quick_validate.py` is also used during release
 
 发布准备还使用 OpenAI Skill Creator 的基础检查器，检查 Skill 结构、元数据及未完成占位，不能据此证明模型判断质量。
 
+The six Plan Mode bridge tests additionally check idempotent enable/remove, byte-preservation of existing instructions, dry-run behavior, malformed markers, missing Skill paths, symlink refusal and preservation of rules added after the managed block. These are file-management checks, not proof of model routing.
+
+新增六项桥接工具测试检查启用与撤销的幂等性、原规则字节保留、预览、异常标记、缺失路径、符号链接拒绝及后加规则保留；不等于已完成模型路由实测。
+
 ## Behavior review / 行为审阅
 
-The 16 cases in [scenarios.md](../tests/scenarios.md) were walked through by the authoring agent against the completed instructions. This is a review of expected routing, decision updates, stopping, language, and consent behavior. It is not an independent blind evaluation or proof that every host/model follows the workflow.
+The 18 cases in [scenarios.md](../tests/scenarios.md) were walked through by the authoring agent against the completed instructions. This is a review of expected routing, decision updates, stopping, language, and consent behavior. It is not an independent blind evaluation or proof that every host/model follows the workflow.
 
-主代理对 16 个场景进行规则走查，检查路由、决策更新、结束条件、语言和授权处理；这不是独立盲测，不保证所有宿主或模型的行为。
+主代理对 18 个场景进行规则走查，检查路由、决策更新、结束条件、语言和授权处理；这不是独立盲测，不保证所有宿主或模型的行为。
 
 ## Platform limits / 平台边界
 
-Local installation copies and package round trips are tested in temporary directories. The plugin manifest and marketplace paths are checked against the official packaging documentation. End-to-end ChatGPT Work UI installation and cross-platform Windows execution are not yet verified. The workflow requires a capable host model and its available tools; it does not enforce behavior itself.
+Local installation copies and package round trips are tested in temporary directories. The plugin manifest and marketplace paths are checked against the official packaging documentation. End-to-end ChatGPT Work UI installation, real Plan Mode toggle routing and cross-platform Windows execution are not yet verified. The workflow requires a capable host model and its available tools; it does not enforce behavior itself.
 
-已在临时目录验证本地复制与包内容，按官方说明检查插件清单及来源路径。尚未完成 ChatGPT Work 界面端到端安装及 Windows 实机运行验证，文本流程本身不强制约束宿主模型。
+已在临时目录验证本地复制与包内容，按官方说明检查插件清单及来源路径。尚未完成 ChatGPT Work 界面安装、真实计划模式开关联动及 Windows 实机运行验证，文本流程本身不强制约束宿主模型。
 
 ## Source retention / 来源保留
 

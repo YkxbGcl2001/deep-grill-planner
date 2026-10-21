@@ -18,7 +18,7 @@
 - 支持中文、英文、可选进度记录和可选启发式评分。
 - 尊重已有授权；仅要求访谈或规划时不自动开始执行。
 
-它不会修改原生 Plan Mode 或提问上限。安装本身不会运行脚本、联网、采集遥测或启动钩子；执行用户任务时，宿主智能体可以使用原有工具。
+它不会修改原生 Plan Mode 或提问上限。Skill 没有自动执行的安装钩子、遥测或后台服务；可选工具只复制本地文件或修改明确指定的规则文件；执行用户任务时，宿主智能体可以使用原有工具。
 
 ## 安装
 
@@ -35,26 +35,28 @@ python3 scripts/install.py
 作为 ChatGPT Work / Codex 桌面插件使用时，在支持该功能的 CLI 中添加仓库来源：
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.1.0
 ```
 
 随后在桌面 Plugins Directory 选择该来源，安装 Deep Grill Planner 并新建聊天。这是通过 GitHub 分发的插件，尚未上架 OpenAI 通用公共插件目录；可用性取决于宿主和账号。完整步骤及验证范围见[中文安装说明](docs/installation.zh-CN.md)。
 
-也可以从 [v1.0.1](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.1) 下载独立 Skill ZIP、插件 ZIP 和校验清单。安装独立 Skill 时，只复制 Skill 文件夹，不要安装整个仓库。
+也可以从 [v1.1.0](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.1.0) 下载独立 Skill ZIP、插件 ZIP 和校验清单。安装独立 Skill 时，只复制 Skill 文件夹，不要安装整个仓库。
 
-## 需要打开计划模式吗？
+## 手动开启与计划模式联动
 
-**不需要，普通模式就能使用。** 从技能选择器选择「深问规划」，或明确写 `$deep-grill-planner`，即可启动访谈。仅打开 Plan Mode 不代表已经调用这个 Skill；系统也可能根据任务描述自动匹配，但明确选择更可靠。
+**已关闭根据任务描述自动启用。** 普通模式下，只有明确选择「深问规划」或调用 `$deep-grill-planner`，才进入该流程。
 
-| 用法 | 结果 |
-| --- | --- |
-| 普通模式 + 明确调用深问规划 | 可直接访谈、澄清需求并形成计划 |
-| 计划模式 + 明确调用深问规划 | 按该 Skill 访谈，同时遵守计划模式的限制 |
-| 只开计划模式，没有指定 Skill | 不保证调用深问规划 |
+安装 Skill 后，可以主动启用可选的 **Plan 模式桥接**：
 
-只想讨论方案时，可以打开计划模式并选择本 Skill。普通任务直接正常调用即可。准备实施时，通过宿主正常操作退出计划模式并给出执行指令；Skill 不会自行切换模式，也不能绕过模式限制。
+```sh
+python3 scripts/plan_bridge.py
+```
 
-中文名称用于显示，内部标识保留 `deep-grill-planner`，原安装链接和调用方式继续有效。
+它会向 Codex 的 `AGENTS.md` 添加一小段可移除的条件规则，保留原有内容。新建 Codex 会话后，**手动打开计划模式并发送任务**，只要宿主明确提供当前为 Plan 模式，该规则就会引导智能体加载深问规划。回到普通模式后，不再自动进入。不会根据任务措辞、历史记录或钩子权限字段猜测模式。
+
+这是指令层联动，不是监听按钮的原生事件接口，也不是二进制强制执行。它依赖宿主加载规则及模型遵循规则，尚未完成真实界面开关的端到端验证。安装、撤销和调研依据见 [Plan 模式桥接说明](docs/plan-mode.md)。
+
+中文名用于展示，内部标识仍为 `deep-grill-planner`，原调用方式与仓库链接继续有效。
 
 ## 使用示例
 

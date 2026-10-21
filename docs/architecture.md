@@ -8,6 +8,10 @@ Dependencies determine question order. Materiality determines which branches nee
 
 依赖决定顺序，重要程度决定是否询问用户，审查检查前提，就绪条件决定何时结束，授权范围单独决定接下来允许做什么。
 
+Activation is explicit-only. An optional, user-enabled AGENTS.md bridge routes the trusted current Plan Mode into this Skill; it never matches the task description to activate it. See [Plan Mode bridge](plan-mode.md) for the mechanism, research basis and limits.
+
+默认仅手动调用；用户可主动配置规则桥接，让宿主真实 Plan 模式进入本 Skill，不按任务描述触发。机制、参考实现与边界见桥接说明。
+
 ## Upstream changes / 上游差异
 
 The pinned Deep Interview already incorporates Grilling through `--frontier`. This project adapts that overlap rather than claiming a new fusion. It removes `.claude` settings requirements, OMC state calls, forced model choices, fixed challenge-round triggers, and mandatory OMC execution handoffs.

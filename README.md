@@ -2,7 +2,7 @@
 
 [简体中文](README.zh-CN.md) · **English** · [Installation](docs/installation.md) · [Releases](https://github.com/YkxbGcl2001/deep-grill-planner/releases)
 
-**Ask the questions that change the plan. Then build a plan worth executing.**
+**Ask the questions that change the plan. Start manually, or through your enabled Plan Mode bridge.**
 
 A standalone Agent Skill combining dependency-aware question rounds from Grilling with assumption challenges and readiness checks from Deep Interview. The interview uses the agent's existing tools: no OMC, API key, server, or Python runtime is required.
 
@@ -18,7 +18,7 @@ A standalone Agent Skill combining dependency-aware question rounds from Grillin
 - Supports Chinese and English, optional checkpoints, and optional heuristic scoring.
 - Preserves existing authorization; an interview-only request does not silently become execution.
 
-This workflow does not modify native Plan Mode or its question limits. Installation runs no scripts, network calls, telemetry, or hooks. The host agent may use its normal tools during a requested task.
+This workflow does not modify native Plan Mode or its question limits. The Skill has no executable install hooks, telemetry, or background services. The optional utilities copy local files or edit the explicitly selected instruction file. The host agent may use its normal tools during a requested task.
 
 ## Install
 
@@ -35,16 +35,26 @@ Default destination: `~/.agents/skills/deep-grill-planner`. Existing folders are
 For the ChatGPT Work / Codex desktop plugin, add this repo marketplace with a supporting CLI:
 
 ```sh
-codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.0.1
+codex plugin marketplace add YkxbGcl2001/deep-grill-planner --ref v1.1.0
 ```
 
 Then select this marketplace in the desktop Plugins Directory, install Deep Grill Planner, and start a new chat. This GitHub-distributed plugin is not listed in OpenAI's universal public directory. Host/account availability varies. See [full installation instructions](docs/installation.md) and their verification limits.
 
-Or download the Skill ZIP, plugin ZIP, and `SHA256SUMS.txt` from [v1.0.1](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.0.1). Install only the Skill folder when using standalone skill discovery.
+Or download the Skill ZIP, plugin ZIP, and `SHA256SUMS.txt` from [v1.1.0](https://github.com/YkxbGcl2001/deep-grill-planner/releases/tag/v1.1.0). Install only the Skill folder when using standalone skill discovery.
 
-## Plan Mode and invocation
+## Manual activation and Plan Mode
 
-Plan Mode is optional. In normal mode, select **深问规划 (Deep Grill Planner)** or explicitly invoke `$deep-grill-planner`. Opening Plan Mode alone does not select this particular skill; implicit matching depends on the task description. Plan Mode can be combined with the Skill when you want to stay in planning. The Skill follows the host mode’s permissions; it cannot authorize execution or file writes that the mode disallows.
+Task-description-based activation is **disabled** (`allow_implicit_invocation: false`). In normal mode, choose 深问规划 or explicitly invoke `$deep-grill-planner` when wanted.
+
+You can explicitly enable the optional **Plan Mode bridge** after installing the Skill:
+
+```sh
+python3 scripts/plan_bridge.py
+```
+
+It adds a small, removable managed section to your Codex `AGENTS.md`, preserving existing rules. After starting a new Codex session, manually select Plan Mode and submit your task: if the host provides a trusted current Plan state, that rule directs the agent to load the Skill. Returning to normal mode stops the automatic entry. It never infers Plan Mode from task wording or hook permission fields.
+
+This is an instruction-level integration, not a native UI event callback or guaranteed binary enforcement. It depends on the host loading AGENTS.md and the model following the rule. No live UI toggle test is claimed. See [bridge design and setup](docs/plan-mode.md).
 
 ## Usage
 

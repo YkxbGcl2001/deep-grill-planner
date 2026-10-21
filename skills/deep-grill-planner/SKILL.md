@@ -1,9 +1,9 @@
 ---
 name: deep-grill-planner
-description: 深问规划：深入澄清需求、按依赖追问并形成计划。 Clarify an underspecified task through dependency-aware questions, recommendations, assumption challenges, and a reviewable plan. Use when the user asks for a deep interview, says grill me, wants assumptions tested, or needs substantial requirements clarified before planning. Do not turn a clear, small execution request into an interview.
+description: 深问规划：通过手动调用，或已配置的手动 Plan 模式入口，澄清需求、检验假设并形成计划。 Explicitly invoked requirements interviews, dependency-aware questions, assumption challenges, and reviewable plans. Do not activate from task-description matching alone.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.1.0"
 ---
 
 # 深问规划 · Deep Grill Planner
@@ -12,7 +12,9 @@ Turn an uncertain idea into a decision-backed, testable plan. Combine a decision
 
 ## Invocation and host modes
 
-The Chinese display name is 深问规划; the stable skill identifier is `deep-grill-planner`. Normal mode is sufficient to use this workflow. Plan Mode is optional and does not itself select this particular skill: invoke it explicitly when the user wants this workflow, or select it when the request matches its description. Do not switch the host mode on the user’s behalf.
+The Chinese display name is 深问规划; the stable skill identifier is `deep-grill-planner`. Implicit task-description matching is disabled in `agents/openai.yaml`. Activate only when the user explicitly selects/invokes this workflow, or when a user-enabled Plan Mode bridge directs you to it based on the host's trusted current Plan state. Do not activate merely because a task looks complex or resembles this description.
+
+The optional [Plan Mode bridge](assets/plan-mode-bridge.md) is a conditional instruction loaded through Codex's AGENTS.md mechanism. After the user manually selects Plan Mode and submits a task, it directs the agent to read this Skill. It is not a UI switch listener or a hook permission-mode detector. Without the bridge, opening Plan Mode alone does not select this Skill. If the current host mode cannot be established, keep the automatic bridge inactive. Do not switch modes on the user's behalf. In normal mode, explicit invocation still works.
 
 Respect the active mode’s permissions. In a host Plan Mode that disallows file changes, keep checkpoints and the planning pack in chat instead of writing files; execution requires leaving that mode through the host’s normal control. The skill cannot override mode restrictions.
 
